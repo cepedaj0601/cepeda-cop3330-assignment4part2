@@ -25,10 +25,8 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exportCurrentListButtonClicked" text="Export Current List" textAlignment="CENTER" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exportAllListsButtonClicked" text="Export All Lists" textAlignment="CENTER" GridPane.columnIndex="1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadListButtonClicked" text="Load a List" textAlignment="CENTER" GridPane.rowIndex="1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadMultipleListsButtonClicked" text="Load Multiple Lists" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exportListButtonClicked" text="Export List" textAlignment="CENTER" />
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadListButtonClicked" text="Load aList" textAlignment="CENTER" GridPane.rowIndex="1" />
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#completedItemsButtonClicked" text="Display&#10;Completed&#10;Items" textAlignment="CENTER" GridPane.rowIndex="2" />
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#incompleteItemsButtonClicked" prefWidth="127.0" text="Display&#10;Incomplete&#10;Items" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#allItemsButtonClicked" text="Display All Items" textAlignment="CENTER" GridPane.rowIndex="3" />
@@ -56,8 +54,7 @@
             </GridPane>
             <TextField fx:id="resultDisplay" layoutX="2.0" layoutY="2.0" prefHeight="42.0" prefWidth="381.0" />
             <ScrollBar layoutX="471.0" layoutY="47.0" orientation="VERTICAL" prefHeight="430.0" />
-            <Button layoutX="385.0" layoutY="2.0" mnemonicParsing="false" onAction="#editNameButtonClicked" text="Edit&#10;Name" textAlignment="CENTER" />
-            <Button layoutX="435.0" layoutY="2.0" mnemonicParsing="false" onAction="#newListButtonClicked" prefHeight="42.0" prefWidth="48.0" text="New&#10;List" textAlignment="CENTER" />
+            <Button layoutX="385.0" layoutY="2.0" mnemonicParsing="false" onAction="#editItemButtonClicked" text="Edit&#10;Name" textAlignment="CENTER" />
          </children></AnchorPane>
   </items>
 </SplitPane>

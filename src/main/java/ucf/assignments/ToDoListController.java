@@ -101,19 +101,7 @@ public class ToDoListController {
     }
 
     @FXML
-    public void newListButtonClicked(ActionEvent actionEvent) {
-        //all information will be stored in 4 separate linked lists(1 for the list names, one for the dates, one for the
-            //item names, one for the item descriptions. Each list will have its own linked list for the dates, names,
-            //and descriptions. So 2 lists with 100 items each will be stored in 8 separate linked lists)
-        //when button is clicked, create a new node in the nameList list
-        //prompt the user for the name of the list
-        //store the name in the new node that was created
-        //display the name in the listName text field box
-        //return the total number of nodes in the list
-        }
-
-    @FXML
-    public void exportCurrentListButtonClicked(ActionEvent actionEvent) {
+    public void exportListButtonClicked(ActionEvent actionEvent) {
         //take in all stored variables (list name, list items, marked as complete variable, etc)
         //create a new variable that stores the file directory
         //prompt for the file directory path to be stored in a string
@@ -121,20 +109,6 @@ public class ToDoListController {
         //copy over the list name
         //in a loop the size of the number of items in the list, copy each item due date, name, and description
         //save the new file with the copied elements
-    }
-
-    @FXML
-    public void exportAllListsButtonClicked(ActionEvent actionEvent) {
-        //take in list counter
-        //in a for loop the size of the list counter, do the following:
-        //take in all stored variables (list name, list items, marked as complete variable, etc) for the current list
-        //create a new variable that stores the file directory
-        //prompt for the file directory path to be stored in a string(all lists will be stored here)
-        //create a new txt file for the current list under the new file directory
-        //copy over the list name
-        //in a loop the size of the number of items in the list, copy each item due date, name, and description
-        //save the new file with the copied elements
-        //repeat n times
     }
 
     @FXML
@@ -154,34 +128,13 @@ public class ToDoListController {
         //repeat until all items have been loaded
     }
 
-    @FXML
-    public void loadMultipleListsButtonClicked(ActionEvent actionEvent) {
-        //prompt for the number of lists the user wants to load
-        //store the number
-        //in a for loop the size of the number, prompt for the file directory path of the current list that the user wants
-            // to load
-        //search for the file
-        //import the file through a file reader
-        //scan for the list name
-        //store the name in a variable
-        //display the name variable in the text field
-        //in a loop that repeats until the end of the file, scan for due dates
-        //when a date is found, store the date
-        //display the date in the item window
-        //scan for the item name and store it
-        //display the item name in the item window
-        //store the item description to be displayed when the item is expanded for the preview window
-        //repeat until all items have been loaded
-        //repeat n times for each list that needs to be loaded (prompting for the directory path each time)
-    }
-
-    public void editNameButtonClicked(ActionEvent actionEvent) {
+    public void editItemButtonClicked(ActionEvent actionEvent) {
         //open a new window containing a text field
-        //prompt the user to enter in the name of the list
-        //when the newline character is detected, stop letting the user enter in characters
-        //overwrite the listName variable with the new string
-        //display the new string in the list name text field
-        //return the new string
+        //prompt the user to make changes to the item
+        //when the save button is clicked, call the saveButtonIsClicked function and stop letting the user enter in characters
+        //overwrite the item's variable with the new strings
+        //display the new item text field
+        //return the new strings
     }
 
     public void addItemButtonClicked(ActionEvent actionEvent) {

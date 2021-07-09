@@ -89,16 +89,6 @@ class ToDoListControllerTest {
     }
 
     @Test
-    void newListButtonClicked() {
-        //create an int equal to the current number of nodes in the list list
-        //create an int variable called actual
-        //set actual equal to the return value of newListButtonIsClicked(it will return the total amount of nodes in the list)
-        //create an int variable called expected
-        //set expected equal to the current number of nodes int + 1
-        //call assertEquals with the parameters: expected & actual
-    }
-
-    @Test
     void addItemButtonClicked() {
         //create an int equal to the current number of nodes in the item list
         //create an int variable called actual
