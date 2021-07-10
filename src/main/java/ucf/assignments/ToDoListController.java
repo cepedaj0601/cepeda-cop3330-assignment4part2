@@ -117,19 +117,7 @@ public class ToDoListController implements Initializable {
         //repeat n times
     }
 
-    @FXML
-    public void deleteCurrentListButtonClicked(ActionEvent actionEvent) {
-        //call areYouSure function
-        //if the return value is yes:
-        //delete the listName's list node
-        //redirect the previous node to point at the node after the deleted node
-        //in a for loop the size of the item name list:
-        //delete the last item in the list
-        //set the previous node to point to null
-        //repeat n times
-        //after the list has been cleared, repeat the same for the dueDate list, description list, and the
-        //markAsComplete list
-    }
+
 
     @FXML
     public void exportCurrentListButtonClicked(ActionEvent actionEvent) {
@@ -159,15 +147,7 @@ public class ToDoListController implements Initializable {
         //repeat until all items have been loaded
     }
 
-    public void editItemButtonClicked(ActionEvent actionEvent) {
-        //open a new window containing a text field
-        //prompt the user to make changes to the item
-        //when the save button is clicked, call the saveButtonIsClicked function and stop letting the user enter in
-            //characters
-        //overwrite the item's variable with the new strings
-        //display the new item text field
-        //return the new strings
-    }
+
 
 
 
@@ -233,6 +213,30 @@ public class ToDoListController implements Initializable {
         itemTableView.setEditable(true);
         itemColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         descriptionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        //allow the user to select multiple items for deletion
+        itemTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    }
+
+    public void deleteItemButtonClicked(ActionEvent actionEvent) {
+        //get list of all items
+        ObservableList<Item> selectedRows, allItems;
+        allItems = itemTableView.getItems();
+
+        //get list of all selected items
+        selectedRows = itemTableView.getSelectionModel().getSelectedItems();
+
+        //in a for loop the size of the item list, remove the selected items from the item list
+        for (Item item: selectedRows) {
+            allItems.remove(item);
+        }
+    }
+
+    @FXML
+    public void clearListButtonClicked(ActionEvent actionEvent) {
+        //get the list of all items
+        //using a java function, clear the list
+        itemTableView.getItems().clear();
     }
 
     public ObservableList<Item> getItems(){
