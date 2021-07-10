@@ -14,10 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
@@ -38,7 +35,10 @@ public class ToDoListController implements Initializable {
     @FXML private TableColumn<Item, LocalDate> dueDateColumn;
 //    @FXML private TableColumn<Item, String> completeColumn;
 
-
+    //create variables used to create new items
+    @FXML private TextField itemNameTextField;
+    @FXML private TextField itemDescriptionTextField;
+    @FXML private DatePicker dueDatePicker;
 
 /*
     @FXML
@@ -162,30 +162,27 @@ public class ToDoListController implements Initializable {
     public void editItemButtonClicked(ActionEvent actionEvent) {
         //open a new window containing a text field
         //prompt the user to make changes to the item
-        //when the save button is clicked, call the saveButtonIsClicked function and stop letting the user enter in characters
+        //when the save button is clicked, call the saveButtonIsClicked function and stop letting the user enter in
+            //characters
         //overwrite the item's variable with the new strings
         //display the new item text field
         //return the new strings
     }
 
-    public void addItemButtonClicked(ActionEvent actionEvent) {
-        //if this is the first item in the list, create 4 new linked lists, one for the dates, another for the names,
-            //one for the descriptions, and the last one to keep track of completed items(it will be initialized as a
-            //boolean value equal to false)
-        //else, add a new node for each of the 3 linked lists
-        //open a new window and prompt for the due date of the item
-        //store the due date in the new node of the dueDate list
-        //open a new window and prompt for the item name
-        //store the item name in the new node of the itemName list
-        //open a new window and prompt for the item description
-        //store the description in the  new node of the description list
-        //close the prompt windows
-        //display the item's due date and name in the preview window
-        //return the total number of nodes
-    }
+
 
 
  */
+
+    public void addNewItemButtonClicked(ActionEvent actionEvent) {
+        //create a new item
+        Item newItem = new Item(itemNameTextField.getText(), itemDescriptionTextField.getText(),
+                dueDatePicker.getValue());
+
+        //get all list items
+        //add new item to list
+        itemTableView.getItems().add(newItem);
+    }
 
     public void changeItemNameCellEvent(TableColumn.CellEditEvent editedCell){
         //edit the name of an item
