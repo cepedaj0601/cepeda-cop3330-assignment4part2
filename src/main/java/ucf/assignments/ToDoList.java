@@ -14,10 +14,6 @@ import java.io.IOException;
 
 public class ToDoList extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -32,4 +28,9 @@ public class ToDoList extends Application {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 }

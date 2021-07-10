@@ -4,32 +4,43 @@
  */
 package ucf.assignments;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 
+import java.io.IOError;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ResourceBundle;
 
-public class ToDoListController {
+public class ToDoListController implements Initializable {
 
     //create to do list table settings
     @FXML private TableView<Item> itemTableView;
     @FXML private TableColumn<Item, String> itemColumn;
     @FXML private TableColumn<Item, String> descriptionColumn;
     @FXML private TableColumn<Item, LocalDate> dueDateColumn;
-    @FXML private TableColumn<Item, String> completeColumn;
+//    @FXML private TableColumn<Item, String> completeColumn;
 
 
 
-
+/*
     @FXML
     private TextField resultDisplay;
 
@@ -173,16 +184,58 @@ public class ToDoListController {
         //return the total number of nodes
     }
 
+
+ */
+
+    public void changeItemNameCellEvent(TableColumn.CellEditEvent editedCell){
+        //edit the name of an item
+        //get the current value
+        Item itemSelected = itemTableView.getSelectionModel().getSelectedItem();
+
+        //update the value to entered text
+        itemSelected.setItemName(editedCell.getNewValue().toString());
+    }
+
+    public void changeItemDescriptionCellEvent(TableColumn.CellEditEvent editedCell){
+        //edit the name of an item
+        //get the current value
+        Item itemSelected = itemTableView.getSelectionModel().getSelectedItem();
+
+        //update the value to entered text
+        itemSelected.setItemDescription(editedCell.getNewValue().toString());
+    }
+
+    public void helpButtonClicked(ActionEvent actionEvent) throws IOException {
+        //set up stage information
+        Parent helpPageParent = FXMLLoader.load(getClass().getResource("HelpPage.fxml"));
+
+        //create a new scene
+        Scene helpPageScene = new Scene(helpPageParent);
+
+        //retrieve the stage information
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(helpPageScene);
+        window.show();
+    }
+
+    //initialize controller class
     @Override
-    public void initialize (URL url, ResourceBundle resourceBundle) {
+    public void initialize (URL url, ResourceBundle resources) {
 
         //set up the columns of the table
-        itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("item"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
+        itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("itemName"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("itemDescription"));
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("dueDate"));
+        //completeColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("complete"));
 
-        //load in the dummy information
+        //load in some information
         itemTableView.setItems(getItems());
+
+        //update the list to permit for changes of the item names and descriptions
+        itemTableView.setEditable(true);
+        itemColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        descriptionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     public ObservableList<Item> getItems(){
@@ -198,5 +251,7 @@ public class ToDoListController {
         //return an ObservableList of Item Objects
         return items;
     }
+
+
 
 }

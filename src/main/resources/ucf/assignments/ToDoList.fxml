@@ -10,7 +10,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ToDoListController">
    <children>
-      <Button layoutX="675.0" layoutY="441.0" mnemonicParsing="false" text="Help?" />
       <Label layoutX="38.0" layoutY="40.0" text="To Do List TableView Object">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -19,10 +18,11 @@
       <TableView fx:id="itemTableView" layoutX="38.0" layoutY="80.0" prefHeight="293.0" prefWidth="502.0">
         <columns>
           <TableColumn fx:id="dueDateColumn" text="Due Date" />
-          <TableColumn fx:id="itemColumn" prefWidth="146.0" text="Item" />
-            <TableColumn fx:id="descriptionColumn" prefWidth="207.0" text="Description" />
+          <TableColumn fx:id="itemColumn" onEditCommit="#changeItemNameCellEvent" prefWidth="146.0" text="Item" />
+            <TableColumn fx:id="descriptionColumn" onEditCommit="#changeItemDescriptionCellEvent" prefWidth="207.0" text="Description" />
             <TableColumn fx:id="completeColumn" minWidth="0.0" prefWidth="68.0" text="Completed" />
         </columns>
       </TableView>
+      <Button layoutX="670.0" layoutY="24.0" mnemonicParsing="false" onAction="#helpButtonClicked" text="Help" />
    </children>
 </AnchorPane>

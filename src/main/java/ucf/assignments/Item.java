@@ -21,24 +21,16 @@ public class Item {
         return itemName.get();
     }
 
-    public SimpleStringProperty itemNameProperty() {
-        return itemName;
-    }
-
     public void setItemName(String itemName) {
-        this.itemName.set(itemName);
+        this.itemName = new SimpleStringProperty(itemName);
     }
 
     public String getItemDescription() {
         return itemDescription.get();
     }
 
-    public SimpleStringProperty itemDescriptionProperty() {
-        return itemDescription;
-    }
-
     public void setItemDescription(String itemDescription) {
-        this.itemDescription.set(itemDescription);
+        this.itemDescription = new SimpleStringProperty(itemDescription);
     }
 
     public LocalDate getDueDate() {
@@ -48,5 +40,6 @@ public class Item {
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
+
 
 }
