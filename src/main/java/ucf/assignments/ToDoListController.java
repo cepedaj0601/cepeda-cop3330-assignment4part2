@@ -4,11 +4,31 @@
  */
 package ucf.assignments;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ResourceBundle;
 
 public class ToDoListController {
+
+    //create to do list table settings
+    @FXML private TableView<Item> itemTableView;
+    @FXML private TableColumn<Item, String> itemColumn;
+    @FXML private TableColumn<Item, String> descriptionColumn;
+    @FXML private TableColumn<Item, LocalDate> dueDateColumn;
+    @FXML private TableColumn<Item, String> completeColumn;
+
+
+
 
     @FXML
     private TextField resultDisplay;
@@ -101,7 +121,7 @@ public class ToDoListController {
     }
 
     @FXML
-    public void exportListButtonClicked(ActionEvent actionEvent) {
+    public void exportCurrentListButtonClicked(ActionEvent actionEvent) {
         //take in all stored variables (list name, list items, marked as complete variable, etc)
         //create a new variable that stores the file directory
         //prompt for the file directory path to be stored in a string
@@ -152,4 +172,31 @@ public class ToDoListController {
         //display the item's due date and name in the preview window
         //return the total number of nodes
     }
+
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle) {
+
+        //set up the columns of the table
+        itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("item"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
+        dueDateColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("dueDate"));
+
+        //load in the dummy information
+        itemTableView.setItems(getItems());
+    }
+
+    public ObservableList<Item> getItems(){
+        //set up list
+        ObservableList<Item> items = FXCollections.observableArrayList();
+        items.add(new Item("Walk Dog", "Take Molly outside after lunch.",
+                LocalDate.of(2021, Month.JULY, 11)));
+        items.add(new Item("Check Oil", "Check the car's oil level before heading out.",
+                LocalDate.of(2021, Month.AUGUST, 11)));
+        items.add(new Item("Study", "Study for the CIS test by next Tuesday.",
+                LocalDate.of(2021, Month.JULY, 13)));
+
+        //return an ObservableList of Item Objects
+        return items;
+    }
+
 }
