@@ -4,6 +4,7 @@
  */
 package ucf.assignments;
 
+import com.sun.javafx.logging.PlatformLogger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,11 +19,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class ToDoListController implements Initializable {
 
@@ -38,6 +42,9 @@ public class ToDoListController implements Initializable {
     @FXML private TextField itemDescriptionTextField;
     @FXML private DatePicker dueDatePicker;
     @FXML private TextField completedMarkTextField;
+
+    //variable for getting file path
+    public String filePath = "";
 
 /*
     @FXML
@@ -118,16 +125,7 @@ public class ToDoListController implements Initializable {
 
 
 
-    @FXML
-    public void exportCurrentListButtonClicked(ActionEvent actionEvent) {
-        //take in all stored variables (list name, list items, marked as complete variable, etc)
-        //create a new variable that stores the file directory
-        //prompt for the file directory path to be stored in a string
-        //create a new txt file under the new file directory
-        //copy over the list name
-        //in a loop the size of the number of items in the list, copy each item due date, name, and description
-        //save the new file with the copied elements
-    }
+
 
     @FXML
     public void loadListButtonClicked(ActionEvent actionEvent) {
@@ -146,6 +144,42 @@ public class ToDoListController implements Initializable {
         //repeat until all items have been loaded
     }
  */
+
+    public String filePathPrompter(){
+        //prepare new scene
+        //open a new scene
+        //read string from scene
+        //store string in variable
+        filePath = "";
+        //return variable
+        return filePath;
+    }
+
+    @FXML
+    public void exportListButtonClicked(ActionEvent actionEvent) throws IOException {
+        //take in table info
+
+
+        //set up stage information
+        Parent helpPageParent = FXMLLoader.load(getClass().getResource("FilePathGetterController.fxml"));
+
+        //create a new scene
+        Scene helpPageScene = new Scene(helpPageParent);
+
+        //retrieve the stage information
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(helpPageScene);
+        window.show();
+
+        //take in all stored variables (list name, list items, marked as complete variable, etc)
+        //create a new variable that stores the file directory
+        //prompt for the file directory path to be stored in a string
+        //create a new txt file under the new file directory
+        //copy over the list name
+        //in a loop the size of the number of items in the list, copy each item due date, name, and description
+        //save the new file with the copied elements
+    }
 
     public void displayAllItemsButtonClicked(ActionEvent actionEvent) {
     }

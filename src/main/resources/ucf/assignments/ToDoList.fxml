@@ -41,7 +41,7 @@
       </VBox>
       <HBox layoutX="385.0" layoutY="24.0" prefHeight="25.0" prefWidth="266.0" spacing="20.0">
          <children>
-            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Export List" textAlignment="CENTER" />
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#exportListButtonClicked" text="Export List" textAlignment="CENTER" />
             <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Load List" textAlignment="CENTER" />
          </children>
       </HBox>
