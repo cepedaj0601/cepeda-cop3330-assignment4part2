@@ -8,13 +8,15 @@ import java.time.LocalDate;
 public class Item {
 
     //create data types to hold the names, descriptions, and due dates
-    private SimpleStringProperty itemName, itemDescription;
+    private SimpleStringProperty itemName, itemDescription, completedMark;
     private LocalDate dueDate;
 
-    public Item(String itemName, String itemDescription, LocalDate dueDate) {
+
+    public Item(String itemName, String itemDescription, LocalDate dueDate, String completedMark) {
         this.itemName = new SimpleStringProperty(itemName);
         this.itemDescription = new SimpleStringProperty(itemDescription);
         this.dueDate = dueDate;
+        this.completedMark = new SimpleStringProperty(completedMark);
     }
 
     public String getItemName() {
@@ -41,5 +43,11 @@ public class Item {
         this.dueDate = dueDate;
     }
 
+    public String getCompletedMark() {
+        return completedMark.get();
+    }
 
+    public void setCompletedMark(String completedMark) {
+        this.completedMark = new SimpleStringProperty(completedMark);
+    }
 }

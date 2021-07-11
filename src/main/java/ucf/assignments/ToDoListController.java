@@ -4,13 +4,12 @@
  */
 package ucf.assignments;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
-import java.io.IOError;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -33,12 +31,13 @@ public class ToDoListController implements Initializable {
     @FXML private TableColumn<Item, String> itemColumn;
     @FXML private TableColumn<Item, String> descriptionColumn;
     @FXML private TableColumn<Item, LocalDate> dueDateColumn;
-//    @FXML private TableColumn<Item, String> completeColumn;
+    @FXML private TableColumn<Item, String> completeColumn;
 
     //create variables used to create new items
     @FXML private TextField itemNameTextField;
     @FXML private TextField itemDescriptionTextField;
     @FXML private DatePicker dueDatePicker;
+    @FXML private TextField completedMarkTextField;
 
 /*
     @FXML
@@ -146,18 +145,21 @@ public class ToDoListController implements Initializable {
         //store the item description to be displayed when the item is expanded for the preview window
         //repeat until all items have been loaded
     }
-
-
-
-
-
-
  */
+
+    public void displayAllItemsButtonClicked(ActionEvent actionEvent) {
+    }
+
+    public void displayCompletedItemsButtonClicked(ActionEvent actionEvent) {
+    }
+
+    public void displayIncompleteItemsButtonClicked(ActionEvent actionEvent) {
+    }
 
     public void addNewItemButtonClicked(ActionEvent actionEvent) {
         //create a new item
         Item newItem = new Item(itemNameTextField.getText(), itemDescriptionTextField.getText(),
-                dueDatePicker.getValue());
+                dueDatePicker.getValue(), completedMarkTextField.getText());
 
         //get all list items
         //add new item to list
@@ -181,6 +183,40 @@ public class ToDoListController implements Initializable {
         //update the value to entered text
         itemSelected.setItemDescription(editedCell.getNewValue().toString());
     }
+/*
+    public void changeDueDateCellEvent(TableColumn.CellEditEvent editedCell){
+        //edit the name of an item
+        //get the current value
+        Item itemSelected = itemTableView.getSelectionModel().getSelectedItem();
+
+        //update the value to entered text
+        itemSelected.setDueDate(LocalDate.parse(editedCell.getNewValue().toString()));
+    }
+
+ */
+
+    public void changeCompletedMarkCellEvent(TableColumn.CellEditEvent editedCell){
+        //edit the name of an item
+        //get the current value
+        Item itemSelected = itemTableView.getSelectionModel().getSelectedItem();
+
+        //update the value to entered text
+        itemSelected.setCompletedMark(editedCell.getNewValue().toString());
+    }
+
+    public void expandItemButtonClicked(ActionEvent actionEvent) throws IOException {
+        //set up stage information
+        Parent helpPageParent = FXMLLoader.load(getClass().getResource("ExpandItem.fxml"));
+
+        //create a new scene
+        Scene helpPageScene = new Scene(helpPageParent);
+
+        //retrieve the stage information
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(helpPageScene);
+        window.show();
+    }
 
     public void helpButtonClicked(ActionEvent actionEvent) throws IOException {
         //set up stage information
@@ -201,10 +237,10 @@ public class ToDoListController implements Initializable {
     public void initialize (URL url, ResourceBundle resources) {
 
         //set up the columns of the table
-        itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("itemName"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("itemDescription"));
-        dueDateColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("dueDate"));
-        //completeColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("complete"));
+        itemColumn.setCellValueFactory(new PropertyValueFactory<>("itemName"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("itemDescription"));
+        dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        completeColumn.setCellValueFactory(new PropertyValueFactory<>("completedMark"));
 
         //load in some information
         itemTableView.setItems(getItems());
@@ -213,6 +249,9 @@ public class ToDoListController implements Initializable {
         itemTableView.setEditable(true);
         itemColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         descriptionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        completeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+      //  dueDateColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
 
         //allow the user to select multiple items for deletion
         itemTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -243,16 +282,13 @@ public class ToDoListController implements Initializable {
         //set up list
         ObservableList<Item> items = FXCollections.observableArrayList();
         items.add(new Item("Walk Dog", "Take Molly outside after lunch.",
-                LocalDate.of(2021, Month.JULY, 11)));
-        items.add(new Item("Check Oil", "Check the car's oil level before heading out.",
-                LocalDate.of(2021, Month.AUGUST, 11)));
+                LocalDate.of(2021, Month.JULY, 11), "C"));
+        items.add(new Item("Check Oil", "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+                LocalDate.of(2021, Month.AUGUST, 11), "I"));
         items.add(new Item("Study", "Study for the CIS test by next Tuesday.",
-                LocalDate.of(2021, Month.JULY, 13)));
+                LocalDate.of(2021, Month.JULY, 13), "I"));
 
         //return an ObservableList of Item Objects
         return items;
     }
-
-
-
 }

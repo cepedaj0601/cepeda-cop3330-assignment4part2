@@ -6,34 +6,41 @@ class ToDoList{
     + start()
 }
 
+class HelpPageController {
+    + backButtonClicked
+}
+
+class ExpandItemController {
+    + backButtonClicked
+}
+
 class ToDoListController{
-    - resultDisplay: TextField
+    - ToDoListTableview
+    - ItemName: TextField
+    - DueDate: TextField
+    - ItemDescription: TextField
+    - ItemStatus: TextField
 
-    + clearDisplay
+    + clearList
     + expandItem
-    + newListButtonClicked
-    + addItemButtonClicked
-    + areYouSure
-    + yesButtonIsClicked
-    + noButtonIsClicked
-    + exportCurrentListButtonClicked
-    + exportAllListsButtonClicked
+    + addNewItemButtonClicked
+    + exportListButtonClicked
     + loadListButtonClicked
-    + loadMultipleListsButtonCLicked
-    + editNameButtonClicked
-    + allItemsButtonClicked
-    + completedItemsButtonClicked
-    + incompleteItemsButtonClicked
-    + deleteCurrentListButtonClicked
+    + displayAllItemsButtonClicked
+    + displayCompletedItemsButtonClicked
+    + displayIncompleteItemsButtonClicked
+    + deleteItemButtonClicked
+    + helpButtonClicked
 }
 
-class ListSorter {
 
-}
 
-javafx.Application <|-- ToDoList
+javafx.ToDoList <-> javafx.HelpPage
+javafx.ExpandItem <-> javafx.ToDoList
+javafx.ToDoList <|-- ToDoList
+javafx.HelpPage -- HelpPageController
+javafx.ExpandItem -- ExpandItemController
 
-ToDoList <-> ListSorter
 ToDoList -- ToDoListController
 
 @enduml
