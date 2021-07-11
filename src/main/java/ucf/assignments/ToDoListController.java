@@ -205,16 +205,24 @@ public class ToDoListController implements Initializable {
     }
 
     public void expandItemButtonClicked(ActionEvent actionEvent) throws IOException {
+        //pass by the selected item and its info
+
         //set up stage information
-        Parent helpPageParent = FXMLLoader.load(getClass().getResource("ExpandItem.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ExpandItem.fxml"));
+        Parent expandItemParent = loader.load();
 
         //create a new scene
-        Scene helpPageScene = new Scene(helpPageParent);
+        Scene expandItemScene = new Scene(expandItemParent);
+
+        //get the controller and call its method
+        ExpandItemController controller = loader.getController();
+        controller.initializeData(itemTableView.getSelectionModel().getSelectedItem());
 
         //retrieve the stage information
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-        window.setScene(helpPageScene);
+        window.setScene(expandItemScene);
         window.show();
     }
 
