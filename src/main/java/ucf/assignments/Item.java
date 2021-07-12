@@ -1,10 +1,14 @@
 package ucf.assignments;
 
-import javafx.beans.property.SimpleStringProperty;
+/*
+ *  UCF COP3330 Summer 2021 Assignment 4 part 2 Solution
+ *  Copyright 2021 Justin Cepeda
+ */
 
+import javafx.beans.property.SimpleStringProperty;
 import java.time.LocalDate;
 
-//class for each item
+//class for each item of the tableview
 public class Item {
 
     //create data types to hold the names, descriptions, and due dates

@@ -37,8 +37,7 @@ public class EditDateController implements Initializable{
     }
 
     public void saveButtonClicked(ActionEvent actionEvent) throws IOException {
-        //update info
-
+        //update due date info
 
         //return to main scene
         //set up stage information
