@@ -1,5 +1,5 @@
 /*
- *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  UCF COP3330 Summer 2021 Assignment 4 part 2 Solution
  *  Copyright 2021 Justin Cepeda
  */
 package ucf.assignments;

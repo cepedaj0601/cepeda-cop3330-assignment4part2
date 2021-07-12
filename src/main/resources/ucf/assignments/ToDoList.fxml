@@ -29,7 +29,12 @@
       <Button layoutX="670.0" layoutY="24.0" mnemonicParsing="false" onAction="#helpButtonClicked" text="Help" />
       <VBox layoutX="561.0" layoutY="80.0" prefHeight="293.0" prefWidth="150.0" spacing="10.0">
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#expandItemButtonClicked" text="Expand Item" />
+            <HBox prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button maxWidth="-Infinity" mnemonicParsing="false" onAction="#expandItemButtonClicked" prefWidth="65.0" text="Expand&#10;Item" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#editDateButtonClicked" prefHeight="42.0" prefWidth="65.0" text="Edit&#10;Date" textAlignment="CENTER" />
+               </children>
+            </HBox>
             <DatePicker fx:id="dueDatePicker" prefWidth="150.0" promptText="Due Date" />
             <TextField fx:id="itemNameTextField" prefHeight="0.0" prefWidth="150.0" promptText="Item Name" />
             <TextField fx:id="itemDescriptionTextField" prefWidth="150.0" promptText="Item Description" />

@@ -12,24 +12,32 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.util.EventObject;
 import java.util.ResourceBundle;
 
-public class FilePathGetterController implements Initializable {
-/*
+public class EditDateController implements Initializable{
+
+    //take in selected item
     private Item selectedItem;
-    public String filePath;
 
-    @FXML private TextField filePathTextField;
+    //create variables to take in input
+    @FXML private TextField dueDateTextField;
 
-    public void saveButtonClicked(Item item) throws IOException {
+    public void initializeData(Item item){
+        //initialize item to change
+        selectedItem = item;
 
+        //get the information
+        dueDateTextField.setText(selectedItem.getDueDate().toString());
+    }
+
+    public void saveButtonClicked(ActionEvent actionEvent) throws IOException {
+        //update info
 
 
         //return to main scene
@@ -46,14 +54,10 @@ public class FilePathGetterController implements Initializable {
         window.show();
     }
 
- */
-
     //initialize controller class
     @Override
-    public void initialize (URL url, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
-
-
 
 }

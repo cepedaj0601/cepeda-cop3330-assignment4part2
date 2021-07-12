@@ -25,6 +25,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -44,88 +45,14 @@ public class ToDoListController implements Initializable {
     @FXML private TextField completedMarkTextField;
 
     //variable for getting file path
-    public String filePath = "";
+  //  public String filePath = "";
 
 /*
-    @FXML
-    private TextField resultDisplay;
-
-    @FXML
-    public void expandItem(ActionEvent actionEvent) {
-        //open a new window
-        //print the due date of the item
-        //on a new line, print the name of the item
-        //on a new line print the description of the item, with an additional new line each time the window size is
-            //reached
-    }
-
-    @FXML
-    public void areYouSure(ActionEvent actionEvent) {
-        //open a new window
-        //display the text: "Are you sure?"
-        //then display two buttons, one labeled Yes, the other No
-        //if yes button is clicked, call the yesButtonIsClicked function
-        //if no button is clicked, call the noButtonIsClicked function
-        //return the value of the called function
-        //close the window
-    }
-
-    @FXML
-    public void yesButtonIsClicked(ActionEvent actionevent) {
-        //return boolean value equal to true
-    }
-
-    @FXML
-    public void noButtonIsClicked(ActionEvent actionevent) {
-        //return boolean value equal to false
-    }
 
     @FXML
     public void markAsCompleteButtonIsClicked(ActionEvent actionEvent){
         //set the matching item index node to true
     }
-
-    @FXML
-    public void clearDisplay(ActionEvent actionEvent){
-        //while the number of preview windows on the grid pane is not equal to 0:
-        //check the second grid pane slot (the first is taken up by the addItemButton)
-        //if it is not empty, delete the item in the slot
-        //return int containing current number of preview windows
-    }
-
-    @FXML
-    public void allItemsButtonClicked(ActionEvent actionEvent) {
-        //call the clearDisplay function
-        //in a loop the size of the number of items in the list:
-        //create a preview window in the next available slot
-        //display the item's due date
-        //display the item's name
-        //repeat n times
-    }
-
-    @FXML
-    public void completedItemsButtonClicked(ActionEvent actionEvent) {
-        //call the clearDisplay function
-        //in a for loop the size of the number of items in the list:
-        //check the item's corresponding markAsComplete list node
-        //if the stored value is true, create a preview window and display the item's due date and name
-        //else, skip the item
-        //repeat n times
-    }
-
-    @FXML
-    public void incompleteItemsButtonClicked(ActionEvent actionEvent) {
-        //call the clearDisplay function
-        //in a for loop the size of the number of items in the list:
-        //check the item's corresponding markAsComplete list node
-        //if the stored value is false, create a preview window and display the item's due date and name
-        //else, skip the item
-        //repeat n times
-    }
-
-
-
-
 
     @FXML
     public void loadListButtonClicked(ActionEvent actionEvent) {
@@ -145,49 +72,31 @@ public class ToDoListController implements Initializable {
     }
  */
 
-    public String filePathPrompter(){
-        //prepare new scene
-        //open a new scene
-        //read string from scene
-        //store string in variable
-        filePath = "";
-        //return variable
-        return filePath;
-    }
 
-    @FXML
-    public void exportListButtonClicked(ActionEvent actionEvent) throws IOException {
-        //take in table info
-
-
-        //set up stage information
-        Parent helpPageParent = FXMLLoader.load(getClass().getResource("FilePathGetterController.fxml"));
-
-        //create a new scene
-        Scene helpPageScene = new Scene(helpPageParent);
-
-        //retrieve the stage information
-        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(helpPageScene);
-        window.show();
-
-        //take in all stored variables (list name, list items, marked as complete variable, etc)
-        //create a new variable that stores the file directory
-        //prompt for the file directory path to be stored in a string
-        //create a new txt file under the new file directory
-        //copy over the list name
-        //in a loop the size of the number of items in the list, copy each item due date, name, and description
-        //save the new file with the copied elements
-    }
 
     public void displayAllItemsButtonClicked(ActionEvent actionEvent) {
+        //take in all items in the copy of the to do list table
+        //set variable equal to the list of all items
+        //clear the main to do list
+        //repopulate the main list with the elements of the copied tableview
     }
 
     public void displayCompletedItemsButtonClicked(ActionEvent actionEvent) {
+        //take in all items in the copy of the to do list table
+        //set variable equal to the list of all items
+        //clear the main to do list
+        //using a loop, check for the 'C' char in the completeMark column
+        //if 'C' char is present, add the item to the main tableview
+        //the table should now be repopulated with only completed items
     }
 
     public void displayIncompleteItemsButtonClicked(ActionEvent actionEvent) {
+        //take in all items in the copy of the to do list table
+        //set variable equal to the list of all items
+        //clear the main to do list
+        //using a loop, check for the 'I' char in the completeMark column
+        //if 'I' char is present, add the item to the main tableview
+        //the table should now be repopulated with only incomplete items
     }
 
     public void addNewItemButtonClicked(ActionEvent actionEvent) {
@@ -228,6 +137,8 @@ public class ToDoListController implements Initializable {
     }
 
  */
+
+
 
     public void changeCompletedMarkCellEvent(TableColumn.CellEditEvent editedCell){
         //edit the name of an item
@@ -299,6 +210,34 @@ public class ToDoListController implements Initializable {
         itemTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
+    //take in selected item
+ //   private Item selectedItem;
+
+    //create variables for each display label
+//    @FXML private Label dueDateLabel;
+
+    public void editDateButtonClicked(ActionEvent actionEvent) throws IOException {
+ /*       //set up stage information
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("EditDate.fxml"));
+        Parent editDateParent = loader.load();
+
+        //create a new scene
+        Scene editDateScene = new Scene(editDateParent);
+
+        //get the controller and call its method
+        ExpandItemController controller = loader.getController();
+        controller.initializeData(itemTableView.getSelectionModel().getSelectedItem());
+
+        //retrieve the stage information
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(editDateScene);
+        window.show();
+
+  */
+    }
+
     public void deleteItemButtonClicked(ActionEvent actionEvent) {
         //get list of all items
         ObservableList<Item> selectedRows, allItems;
@@ -323,14 +262,34 @@ public class ToDoListController implements Initializable {
     public ObservableList<Item> getItems(){
         //set up list
         ObservableList<Item> items = FXCollections.observableArrayList();
-        items.add(new Item("Walk Dog", "Take Molly outside after lunch.",
-                LocalDate.of(2021, Month.JULY, 11), "C"));
-        items.add(new Item("Check Oil", "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
-                LocalDate.of(2021, Month.AUGUST, 11), "I"));
-        items.add(new Item("Study", "Study for the CIS test by next Tuesday.",
-                LocalDate.of(2021, Month.JULY, 13), "I"));
 
         //return an ObservableList of Item Objects
         return items;
     }
+
+    @FXML
+    public void exportListButtonClicked(ActionEvent actionEvent/*, ObservableList<Item> items*/) throws IOException {
+/*
+        //take in table info
+
+
+        //set up stage information
+        Parent helpPageParent = FXMLLoader.load(getClass().getResource("FilePathGetterController.fxml"));
+
+        //create a new scene
+        Scene helpPageScene = new Scene(helpPageParent);
+
+        //retrieve the stage information
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(helpPageScene);
+        window.show();
+
+ */
+    }
+
+
+
+
+
 }
