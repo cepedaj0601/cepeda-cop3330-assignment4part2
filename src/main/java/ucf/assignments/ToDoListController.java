@@ -118,6 +118,7 @@ public class ToDoListController implements Initializable {
         itemSelected.setItemName(editedCell.getNewValue().toString());
     }
 
+
     public void changeItemDescriptionCellEvent(TableColumn.CellEditEvent editedCell){
         //edit the name of an item
         //get the current value

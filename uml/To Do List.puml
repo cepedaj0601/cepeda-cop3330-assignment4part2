@@ -6,40 +6,83 @@ class ToDoList{
     + start()
 }
 
+class javafx.Item {
+    - Item: Object
+    - itemName: SimpleStringProperty
+    - itemDescription: SimpleStringProperty
+    - completedMark: SimpleStringProperty
+    - dueDate: LocalDate
+--
+    + getItemName()
+    + setItemName()
+    + getItemDescription
+    + setItemDescription
+    + getDueDate
+    + setDueDate
+    + getCompletedMark
+    + setCompletedMark
+}
+
+class FilePathGetterController {
+    - FilePathTextField: TextField
+
+    + saveButtonClicked()
+}
+
+class EditDateController {
+    - DueDate: DatePicker
+
+    + saveButtonClicked()
+}
+
 class HelpPageController {
-    + backButtonClicked
+    + backButtonClicked()
 }
 
 class ExpandItemController {
-    + backButtonClicked
+    + backButtonClicked()
 }
 
 class ToDoListController{
-    - ToDoListTableview
+    - itemTableview: TableView
+    - itemColumn: TableColumn
+    - descriptionColumn: TableColumn
+    - dueDateColumn: TableColumn
+    - completeColumn: TableColumn
+--
     - ItemName: TextField
-    - DueDate: TextField
+    - DueDate: DatePicker
     - ItemDescription: TextField
     - ItemStatus: TextField
-
-    + clearList
-    + expandItem
-    + addNewItemButtonClicked
-    + exportListButtonClicked
-    + loadListButtonClicked
-    + displayAllItemsButtonClicked
-    + displayCompletedItemsButtonClicked
-    + displayIncompleteItemsButtonClicked
-    + deleteItemButtonClicked
-    + helpButtonClicked
+--
+    + clearListButtonClicked()
+    + expandItemButtonClicked()
+    + editDueDateButtonClicked()
+    + addNewItemButtonClicked()
+    + exportListButtonClicked()
+    + loadListButtonClicked()
+    + displayAllItemsButtonClicked()
+    + displayCompletedItemsButtonClicked()
+    + displayIncompleteItemsButtonClicked()
+    + deleteItemButtonClicked()
+    + helpButtonClicked()
 }
 
+javafx.ToDoList <--> javafx.HelpPage
+javafx.ToDoList <--> javafx.ExpandItem
+javafx.ToDoList <--> javafx.EditDate
+javafx.ToDoList <--> javafx.FilePathGetter
+javafx.Item -> javafx.ToDoList
+javafx.Item --> javafx.HelpPage
+javafx.Item --> javafx.ExpandItem
+javafx.Item --> javafx.EditDate
+javafx.Item --> javafx.FilePathGetter
 
-
-javafx.ToDoList <-> javafx.HelpPage
-javafx.ExpandItem <-> javafx.ToDoList
-javafx.ToDoList <|-- ToDoList
+ToDoList -|> javafx.ToDoList
 javafx.HelpPage -- HelpPageController
-javafx.ExpandItem -- ExpandItemController
+javafx.ExpandItem --- ExpandItemController
+javafx.EditDate -- EditDateController
+javafx.FilePathGetter --- FilePathGetterController
 
 ToDoList -- ToDoListController
 
