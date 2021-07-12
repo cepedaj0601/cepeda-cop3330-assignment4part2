@@ -1,100 +1,124 @@
-/*
- *  UCF COP3330 Summer 2021 Assignment 4 Solution
- *  Copyright 2021 Justin Cepeda
- */
 package ucf.assignments;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//I apologize for wasting your time by having you click on this, nothing worth looking at here :(
 class ToDoListControllerTest {
 
     @Test
-    void areYouSure() {
-        //create a boolean variable called actual
-        //set it equal to return value of selected button
-        //create a boolean variable called expected
-        //if yes is selected, set expected equal to true
-        //else, set expected equal to false
-        //call assertEquals with the parameters: expected & actual
+    void displayAllItemsButtonClicked() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return of function (make it return the number of items on the list)
+        //set expected to initial number of list items
+        //if equal, test passed
     }
 
     @Test
-    void yesButtonIsClicked() {
-        //create a boolean variable called actual
-        //set actual equal to the return value of yesButtonIsClicked
-        //create a boolean variable called expected
-        //set expected equal to true
-        //call assertEquals with the parameters: expected & actual
+    void displayCompletedItemsButtonClicked() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return of function (make it return the number of complete items on the list)
+        //set expected to initial number of complete list items
+        //if equal, test passed
     }
 
     @Test
-    void noButtonIsClicked() {
-        //create a boolean variable called actual
-        //set actual equal to the return value of noButtonIsClicked
-        //create a boolean variable called expected
-        //set expected equal to false
-        //call assertEquals with the parameters: expected & actual
+    void displayIncompleteItemsButtonClicked() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return of function (make it return the number of incomplete items on the list)
+        //set expected to initial number of incomplete list items
+        //if equal, test passed
     }
 
     @Test
-    void clearDisplay() {
-        //create an int variable called actual
-        //set actual equal to the return of clearDisplay, which will return an int containing the number of preview
-            //windows
-        //create an int variable called expected
-        //set expected equal to 0
-        //call assertEquals with the parameters: expected & actual
+    void addNewItemButtonClicked() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return of function (make it return the new number of items on the list)
+        //set expected to initial number of list items + 1
+        //if equal, test passed
     }
 
     @Test
-    void allItemsButtonClicked() {
-        //create an int variable called actual
-        //set actual equal to the return of clearDisplay, which will return an int containing the number of preview
-        //windows
-        //create an int variable called expected
-        //set expected equal to 0
-        //call assertEquals with the parameters: expected & actual
+    void changeItemNameCellEvent() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return value of function (have it return the new string entered)
+        //set expected to the new string
+        //if equal, test passed
     }
 
     @Test
-    void completedItemsButtonClicked() {
-        //create an int variable called actual
-        //set actual equal to the return of clearDisplay, which will return an int containing the number of preview
-        //windows
-        //create an int variable called expected
-        //set expected equal to 0
-        //call assertEquals with the parameters: expected & actual
+    void changeItemDescriptionCellEvent() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return value of function (have it return the new string entered)
+        //set expected to the new string
+        //if equal, test passed
     }
 
     @Test
-    void incompleteItemsButtonClicked() {
-        //create an int variable called actual
-        //set actual equal to the return of clearDisplay, which will return an int containing the number of preview
-        //windows
-        //create an int variable called expected
-        //set expected equal to 0
-        //call assertEquals with the parameters: expected & actual
+    void changeCompletedMarkCellEvent() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return value of function (have it return the new string entered)
+        //set expected to the new string
+        //if equal, test passed
     }
 
     @Test
-    void deleteCurrentListButtonClicked() {
-        //create an int equal to the current number of nodes in the list list
-        //create an int variable called actual
-        //set actual equal to the return value of deleteCurrentListButtonIsClicked(it will return the total amount of nodes in the list)
-        //create an int variable called expected
-        //set expected equal to the current number of nodes int - 1
-        //call assertEquals with the parameters: expected & actual
+    void expandItemButtonClicked() {
+        //action dependent :(
+        //here id just test to see if the window opened by having a return int sent out
     }
 
     @Test
-    void addItemButtonClicked() {
-        //create an int equal to the current number of nodes in the item list
-        //create an int variable called actual
-        //set actual equal to the return value of ItemButtonIsClicked(it will return the total amount of nodes in the list)
-        //create an int variable called expected
-        //set expected equal to the current number of nodes int + 1
-        //call assertEquals with the parameters: expected & actual
+    void helpButtonClicked() {
+        //action dependent :(
+        //here id just test to see if the window opened by having a return int sent out
+    }
+
+    @Test
+    void initialize() {
+        //initialization function, no test required to my knowledge
+    }
+
+    @Test
+    void editDateButtonClicked() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return value of function (have it return the new string entered)
+        //set expected to the new string
+        //if equal, test passed
+    }
+
+    @Test
+    void deleteItemButtonClicked() {
+        //action dependent :(
+        //ideally id do:
+        //set actual to return of function (make it return the new number of items on the list)
+        //set expected to initial number of list items - 1
+        //if equal, test passed
+    }
+
+    @Test
+    void clearListButtonClicked() {
+        //action dependent :(
+        //set actual to return of function (make it return the new number of items on the list)
+        //set expected to 0
+        //if equal, test passed
+    }
+
+    @Test
+    void getItems() {
+        //getter function, test is pointless
+    }
+
+    @Test
+    void exportListButtonClicked() {
+        //action dependent :(
     }
 }

@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -34,6 +33,8 @@ public class EditDateController implements Initializable{
 
         //get the information
         dueDateTextField.setText(selectedItem.getDueDate().toString());
+
+        //return 0;
     }
 
     public void saveButtonClicked(ActionEvent actionEvent) throws IOException {
@@ -56,7 +57,6 @@ public class EditDateController implements Initializable{
     //initialize controller class
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
 }

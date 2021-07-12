@@ -39,6 +39,8 @@ public class ExpandItemController implements Initializable{
         itemNameLabel.setText(selectedItem.getItemName());
         itemDescriptionLabel.setText(selectedItem.getItemDescription());
         itemStatusLabel.setText(selectedItem.getCompletedMark());
+
+       // return 0;
     }
 
     public void backButtonClicked(ActionEvent actionEvent) throws IOException {
